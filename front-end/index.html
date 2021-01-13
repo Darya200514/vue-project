@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "text" name ="name" id = "registration_name" class ="card">
+    <input type="button" value="click" onclick = "message()">
+    <br>
+    <br>
+    <input type="email" name="email" id="registration_email" class ="card">
+    <input type="button" value="click" onclick = "message()">
+
+    <div class = "card"></div>
+    
+    <div id="app" >
+        <div v-for="(result,index) in results">
+            <img :src="result.avatar" :alt="avatar" class="art">
+            <p>{{ result.first_name }}</p>
+            <p>{{ result.email }}</p>
+            <button v-on:click="deleteUser(index)" class="card">delete</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
