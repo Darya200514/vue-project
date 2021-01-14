@@ -8,12 +8,12 @@ const User = mongoose.model('User', { name: String, age: String, location: Strin
 const app = express();
 app.use(express.json());
 app.use(cors());
-const port = 8000;
+const port = 3000;
 
 (async () => {
     app.get('/users',async(req, res) => {
-        User.find({}, function(err, users) {
-            res.send(JSON.stringify(users));  
+        User.find({}, (err, users) => {
+            res.send(users);  
           });
     });
 
@@ -23,7 +23,7 @@ const port = 8000;
         if (user == null)
             res.status(404).send('{"code":404}');
         else 
-            res.status(201).send(JSON.stringify(user));
+            res.status(201).send(user);
     });
 
     app.post('/user', async (req, res) => {
@@ -34,7 +34,7 @@ const port = 8000;
     });
 
     app.delete('/user/:id', async(req, res) => {
-        User.deleteOne({ _id: req.params.id }, function (err) {
+        User.deleteOne({ _id: req.params.id }, (err) => {
             if (err) {
                 res.status(404).send('{"code":404}');
                 console.log(err);

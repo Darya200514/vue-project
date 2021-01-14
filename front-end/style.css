@@ -1,9 +1,16 @@
-.card{
-border-width:1 px;
-border-color: black;
-background-color: gold;
 
+.card-header{
+    border-radius: 13 px;
+    border-color: cadetblue;
+    background-color: gold;
+    font-size: large;
+    font-style: oblique;
 }
-.art{
-    border: 6px solid black;
+.Sign_Up{
+    height: 15rem;
+    width: 13rem;
+    margin-top: auto;
+    text-align: center;
+    border:solid 2px rgb(219, 219, 219);
 }
+

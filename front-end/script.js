@@ -1,4 +1,4 @@
-const url = "https://reqres.in/api/users?page=2"
+const url = " http://localhost:3000"
 const vm = new Vue({
     el:"#app",
     data:{
