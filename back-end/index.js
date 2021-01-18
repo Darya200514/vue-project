@@ -5,10 +5,31 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/users', {useNewUrlParser: true, useUnifiedTopology: true});
 const User = mongoose.model('User', { name: String, age: String, location: String, avatar: String });
 
+const sequelize = new Sequelize("sqlite:./main.db", {
+    logging: false,
+    dialect: "sqlite",
+    define: {
+      timestamps: false,
+    },
+});
+class User extends Model {}
+User.init(
+    {
+      first_name: DataTypes.STRING,
+      last_name: DataTypes.STRING,
+      avatar: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING
+    },
+    { sequelize, modelName: "Users" }
+  );
 const app = express();
 app.use(express.json());
 app.use(cors());
 const port = 3000;
+
+
+
 
 (async () => {
     app.get('/users',async(req, res) => {
